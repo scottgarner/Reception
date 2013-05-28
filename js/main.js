@@ -10,6 +10,11 @@ $(document).ready( function () {
 	startTime = Date.now();
 
 	$("#button").click( function() {
+
+		if (!/^http:\/\//.test($("#url").val())) {
+            $("#url").val("http://" + $("#url").val());
+        }
+
 		$("#frameOne").attr("src",
 			$("#url").val()
 		);
