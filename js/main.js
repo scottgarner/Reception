@@ -4,7 +4,13 @@ var childLoaded = false;
 
 $(document).ready( function () {
 
-	displayDialog();
+	if (!checkFilters()){
+
+		displayDialog("#error");
+		return;
+	}
+
+	displayDialog('#dialog');
 	animate();
 
 	startTime = Date.now();
@@ -48,20 +54,36 @@ $(window).bind('message', function(e) {
 	if (e.originalEvent.data == "child") childLoaded = true;
 });
 
-function displayDialog() {
+function displayDialog(name) {
 
-	$("#dialog").css({
+	$(name).css({
 		top:'50%',
 		left:'50%',
-		margin:'-'+($('#dialog').height() / 2)+'px 0 0 -'+($('#dialog').width() / 2)+'px'
+		margin:'-'+($(name).height() / 2)+'px 0 0 -'+($(name).width() / 2)+'px'
 	}).show();
+
+}
+
+function checkFilters() {
+
+	var property = "filter"
+	var value = "custom(none mix(url(http://www.example.com/)))";
+	var prefixes = ["", "-webkit-", "-moz-", "-ms-", "-o-"];
+
+	var div = $("<div />");
+	for (var i = 0; i < prefixes.length; ++i) {
+		var prefixedProperty = prefixes[i] + property;
+		if (div.css(prefixedProperty, value).css(prefixedProperty) == value)
+		    return true;
+	}
+	return false;
 
 }
 
 function checkLoad() {
 	if (childLoaded) {
 		//console.log("Failed to load");
-		displayDialog();
+		displayDialog('#dialog');
 	} else {
 		//console.log("Load successful!")
 	}
