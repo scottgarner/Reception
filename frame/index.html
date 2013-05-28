@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Frame Test</title>
+	<meta charset="utf-8">
+	
+	<style>
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		#bars {
+			background: url(/assets/SMPTE_Color_Bars.svg);
+			background-size:100% 100%;
+			background-repeat:no-repeat;			
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="bars"></div>
+	<script>
+
+		function receiveMessage (event) {
+			window.parent.postMessage("child", "*");
+		}
+
+		window.addEventListener("message", receiveMessage, false);
+
+	</script>	
+</body>
+</html>
