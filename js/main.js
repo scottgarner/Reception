@@ -18,8 +18,8 @@ $(document).ready( function () {
 	$("#button").click( function() {
 
 		if (!/^http:\/\//.test($("#url").val())) {
-            $("#url").val("http://" + $("#url").val());
-        }
+			$("#url").val("http://" + $("#url").val());
+		}
 
 		$("#frameOne").attr("src",
 			$("#url").val()
@@ -29,8 +29,8 @@ $(document).ready( function () {
 
 	$('#url').keypress(function (e) {
 		if (e.which == 13) {
-            $(this).blur();
-        	$('#button').focus().click();
+			$(this).blur();
+			$('#button').focus().click();
 			return false; 
 		}
 	});		
@@ -66,6 +66,8 @@ function displayDialog(name) {
 
 function checkFilters() {
 
+	// Adapted form https://github.com/adobe/cssfilterlab/
+
 	var property = "filter"
 	var value = "custom(none mix(url(http://www.example.com/)))";
 	var prefixes = ["", "-webkit-", "-moz-", "-ms-", "-o-"];
@@ -74,7 +76,7 @@ function checkFilters() {
 	for (var i = 0; i < prefixes.length; ++i) {
 		var prefixedProperty = prefixes[i] + property;
 		if (div.css(prefixedProperty, value).css(prefixedProperty) == value)
-		    return true;
+			return true;
 	}
 	return false;
 
