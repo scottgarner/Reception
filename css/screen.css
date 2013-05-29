@@ -33,15 +33,19 @@ html, body {
 	color: #fff;
 }
 
+#message {
+	margin: 16px;
+}
+
 #content {
 	margin: 16px 16px 4px 16px;
-	background: #b4d455;
+	
 }
 
 #url {
 	border: none;
 	font-size: 1em;
-	height: 1.7em;
+	height: 26px;
 	width: 360px;
 	padding-left: 8px;
 }
@@ -49,11 +53,13 @@ html, body {
 #button {
 	cursor: pointer;
 	color: #fff;
-	margin: 4px 10px 4px 4px;
+	font-size: 1em;
+	padding: 6px 12px 4px 12px;
+	background: #b4d455;
 }
 
 #button:hover {
-	color: #000;
+	background: #55b4d4;
 }
 
 #credit {
