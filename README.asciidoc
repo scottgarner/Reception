@@ -1,4 +1,4 @@
-= Reception
+= Reception =
 Scott Garner, 2013
 
 http://reception.j38.net/[Reception] is a browser experiment that uses custom CSS filters to give web sites the appearance of content on an old television with a bad signal.
